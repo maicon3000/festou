@@ -69,7 +69,7 @@ flutter:
   - assets/images/item2.png
   - assets/images/item3.jpg
   - assets/images/background.gif
-  - assets/images/smile.jpg
+  - assets/images/smile.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
