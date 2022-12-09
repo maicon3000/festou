@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaPerfilLocador.dart';
-import 'package:Festou/pages/telaPrincipal.dart';
+import 'package:Festou/pages/telaSeletora.dart';
 import 'package:Festou/pages/telaInicial.dart';
 import 'package:Festou/pages/telaLogin.dart';
 
