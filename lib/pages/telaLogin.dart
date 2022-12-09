@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tela_1/pages/telaPerfilLocador.dart';
-import 'package:tela_1/pages/telaInicial.dart';
+import 'package:Festou/pages/telaPerfilLocador.dart';
+import 'package:Festou/pages/telaInicial.dart';
 
-import 'telaSeletora.dart';
+import 'telaPrincipal.dart';
 
 class TelaLogin extends StatelessWidget {
   TelaLogin({Key? key}) : super(key: key);
@@ -175,7 +175,7 @@ class TelaLogin extends StatelessWidget {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaSeletora()),
+                                      builder: (context) => TelaPrincipal()),
                                 );
                               }
                             },
@@ -229,7 +229,7 @@ class TelaLogin extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaInicial()),
+                                      builder: (context) => PrimeiraTela()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(

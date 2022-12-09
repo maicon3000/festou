@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-class TelaBuscar extends StatefulWidget {
-  const TelaBuscar({Key? key}) : super(key: key);
+class BuscaPage extends StatefulWidget {
+  const BuscaPage({Key? key}) : super(key: key);
 
   @override
-  State<TelaBuscar> createState() => _TelaBuscarState();
+  State<BuscaPage> createState() => _BuscaPageState();
 }
 
-class _TelaBuscarState extends State<TelaBuscar> {
+class _BuscaPageState extends State<BuscaPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -14,6 +14,7 @@ class _TelaBuscarState extends State<TelaBuscar> {
         'Contratos',
         style: TextStyle(fontSize: 20.0),
       ),
+
     );
   }
 }
