@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaPerfilLocador.dart';
 import 'package:Festou/pages/telaInicial.dart';
 
-import 'telaPrincipal.dart';
+import 'telaSeletora.dart';
 
 class TelaLogin extends StatelessWidget {
   TelaLogin({Key? key}) : super(key: key);
@@ -175,7 +175,7 @@ class TelaLogin extends StatelessWidget {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaPrincipal()),
+                                      builder: (context) => TelaSeletora()),
                                 );
                               }
                             },

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tela_1/pages/telaPerfilLocador.dart';
-import 'package:tela_1/pages/telaContratos.dart';
-import 'package:tela_1/pages/telaBuscar.dart';
-import 'TelaHomeLocador.dart';
-import 'telaHome.dart';
+import 'package:Festou/pages/telaPerfilLocador.dart';
+import 'package:Festou/pages/contratosPage.dart';
+import 'package:Festou/pages/telaBuscar.dart';
+import 'package:Festou/pages/telaPerfilLocatario.dart';
+import 'telaHomeLocador.dart';
+import 'telaHomeLocatario.dart';
 
 class TelaSeletora extends StatefulWidget {
   TelaSeletora({super.key});
@@ -13,7 +14,7 @@ class TelaSeletora extends StatefulWidget {
 }
 
 class TelaSeletoraState extends State<TelaSeletora> {
-  int paginaAtual = 3;
+  int paginaAtual = 0;
   late PageController pc;
 
   @override
@@ -31,31 +32,22 @@ class TelaSeletoraState extends State<TelaSeletora> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: Column(
-          children: [
-            Text(
-              'Espaco Alegria Kids',
-              style: TextStyle(
-                color: Colors.black,
-              ),
-            ), Text('Rua Maria da Graça, 123, Maria da Graça - RJ',
-                style: TextStyle(fontSize: 12.0,
-                  color: Colors.black,
-                ))
-          ],
-        ),
-      ),
+
       body: PageView(
         controller: pc,
-        children: [
-          TelaHomeLocador(),
-          TelaBuscar(),
-          TelaContratos(),
-          TelaPerfilLocador(),
-        ],
+
+          /*if(locatario) {
+    children: [
+            TelaHomeLocatario(),
+            BuscaPage(),
+            ContratosPage(),
+            TelaPerfilLocatario(),]
+          } else { */
+    children: [
+            TelaHomeLocador(),
+            BuscaPage(),
+            ContratosPage(),
+            TelaPerfilLocador(),],
         onPageChanged: setPaginaAtual,
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -65,7 +57,7 @@ class TelaSeletoraState extends State<TelaSeletora> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Busca'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Contratos'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil',),
         ],
         onTap: (pagina) {
           pc.animateToPage(pagina,
