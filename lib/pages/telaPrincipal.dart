@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tela_1/pages/telaPerfilLocador.dart';
-import 'package:tela_1/pages/telaContratos.dart';
-import 'package:tela_1/pages/telaBuscar.dart';
-import 'TelaHomeLocador.dart';
+import 'package:Festou/pages/telaPerfilLocador.dart';
+import 'package:Festou/pages/contratosPage.dart';
+import 'package:Festou/pages/telaBuscar.dart';
+import 'package:Festou/pages/telaPerfilLocatario.dart';
+import 'telaHomeLocador.dart';
+import 'telaHomeLocatario.dart';
 
 class TelaPrincipal extends StatefulWidget {
   TelaPrincipal({super.key});
@@ -30,38 +32,22 @@ class TelaPrincipalState extends State<TelaPrincipal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: Column(
-          children: [
-            Text(
-              'Espaco Alegria Kids',
-              style: TextStyle(
-                color: Colors.black,
-              ),
-            ), Text('Rua Maria da Graça, 123, Maria da Graça - RJ',
-                style: TextStyle(fontSize: 12.0,
-                  color: Colors.black,
-                ))
-          ],
-        ),
-      ),
+
       body: PageView(
         controller: pc,
 
-        /*if(locatario) {
+          /*if(locatario) {
     children: [
             TelaHomeLocatario(),
             BuscaPage(),
             ContratosPage(),
             TelaPerfilLocatario(),]
           } else { */
-        children: [
-          TelaHomeLocador(),
-          TelaBuscar(),
-          TelaContratos(),
-          TelaPerfilLocador(),],
+    children: [
+            TelaHomeLocador(),
+            BuscaPage(),
+            ContratosPage(),
+            TelaPerfilLocador(),],
         onPageChanged: setPaginaAtual,
       ),
       bottomNavigationBar: BottomNavigationBar(

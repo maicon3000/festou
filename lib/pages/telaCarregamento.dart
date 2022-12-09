@@ -1,27 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:splashscreen/splashscreen.dart';
-import 'package:tela_1/pages/telaInicial.dart';
+import 'package:Festou/pages/telaInicial.dart';
 
-class TelaCarregamento extends StatefulWidget {
-  const TelaCarregamento({Key? key}) : super(key: key);
+class PrimeirissimaTela extends StatefulWidget {
+  const PrimeirissimaTela({Key? key}) : super(key: key);
 
   @override
-  State<TelaCarregamento> createState() => _TelaCarregamentoState();
+  State<PrimeirissimaTela> createState() => _PrimeirissimaTelaState();
 }
 
-class _TelaCarregamentoState extends State<TelaCarregamento> {
+class _PrimeirissimaTelaState extends State<PrimeirissimaTela> {
   @override
   Widget build(BuildContext context) {
     return
        Scaffold(
         body: Stack(
           children: [
-            SplashScreen(
-              seconds: 5,
-
-              navigateAfterSeconds: TelaInicial(),
-              loaderColor: Colors.transparent,
-            ),
             Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:tela_1/pages/telaHomeLocador.dart';
-import 'package:tela_1/pages/telaPerfilLocador.dart';
-import 'package:tela_1/pages/telaCadastro.dart';
-import 'package:tela_1/pages/telaDados.dart';
-import 'package:tela_1/pages/telaSeletora.dart';
-import 'package:tela_1/pages/telaLogin.dart';
-import 'package:tela_1/pages/telaInicial.dart';
-import 'package:tela_1/pages/telaCarregamento.dart';
+import 'package:Festou/pages/telaHomeLocador.dart';
+import 'package:Festou/pages/telaHomeLocatario.dart';
+import 'package:Festou/pages/telaPerfilLocador.dart';
+import 'package:Festou/pages/telaCadastro.dart';
+import 'package:Festou/pages/telaDados.dart';
+import 'package:Festou/pages/telaPerfilLocatario.dart';
+import 'package:Festou/pages/telaPrincipal.dart';
+import 'package:Festou/pages/telaLogin.dart';
+import 'package:Festou/pages/telaInicial.dart';
+import 'package:Festou/pages/telaCarregamento.dart';
 
 void main(){
   runApp(const MyApp());
@@ -17,8 +19,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      home: TelaCarregamento(),
+    return MaterialApp(
+      home: TelaPrincipal(),
     );
   }
 }

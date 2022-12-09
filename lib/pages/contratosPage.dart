@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-class TelaContratos extends StatefulWidget {
-  const TelaContratos({Key? key}) : super(key: key);
+class ContratosPage extends StatefulWidget {
+  const ContratosPage({Key? key}) : super(key: key);
 
   @override
-  State<TelaContratos> createState() => _TelaContratosState();
+  State<ContratosPage> createState() => _ContratosPageState();
 }
 
-class _TelaContratosState extends State<TelaContratos> {
+class _ContratosPageState extends State<ContratosPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
