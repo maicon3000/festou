@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
 import 'package:Festou/pages/telaInicial.dart';
 
 class TelaCarregamento extends StatefulWidget {
@@ -12,9 +13,15 @@ class _TelaCarregamentoState extends State<TelaCarregamento> {
   @override
   Widget build(BuildContext context) {
     return
-       Scaffold(
+      Scaffold(
         body: Stack(
           children: [
+            SplashScreen(
+              seconds: 5,
+
+              navigateAfterSeconds: TelaInicial(),
+              loaderColor: Colors.transparent,
+            ),
             Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -37,15 +44,3 @@ class _TelaCarregamentoState extends State<TelaCarregamento> {
 
   }
 }
-
-/*onPressed: () {
-Navigator.of(context).push(
-MaterialPageRoute(builder: (context) => PrimeiraTela()),
-);
-},
-style: OutlinedButton.styleFrom(
-side: BorderSide(
-width: 0,
-)),
-
- */

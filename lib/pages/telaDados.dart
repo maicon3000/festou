@@ -328,7 +328,7 @@ class TelaDados extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => PrimeiraTela()),
+                                      builder: (context) => TelaInicial()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(
