@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaInicial.dart';
 
-class PrimeirissimaTela extends StatefulWidget {
-  const PrimeirissimaTela({Key? key}) : super(key: key);
+class TelaCarregamento extends StatefulWidget {
+  const TelaCarregamento({Key? key}) : super(key: key);
 
   @override
-  State<PrimeirissimaTela> createState() => _PrimeirissimaTelaState();
+  State<TelaCarregamento> createState() => _TelaCarregamentoState();
 }
 
-class _PrimeirissimaTelaState extends State<PrimeirissimaTela> {
+class _TelaCarregamentoState extends State<TelaCarregamento> {
   @override
   Widget build(BuildContext context) {
     return
