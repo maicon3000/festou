@@ -1,3 +1,4 @@
+import 'package:Festou/pages/telaHomeLocatario.dart';
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaPerfilLocador.dart';
 import 'package:Festou/pages/contratosPage.dart';
