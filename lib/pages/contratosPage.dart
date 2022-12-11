@@ -9,7 +9,7 @@ class ContratosPage extends StatefulWidget {
 class _ContratosPageState extends State<ContratosPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Contratos',
         style: TextStyle(fontSize: 20.0),

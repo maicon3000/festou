@@ -1,19 +1,22 @@
-import 'package:Festou/pages/telaEsqueciMinhaSenha.dart';
+import 'package:Festou/pages/telaLogin.dart';
 import 'package:flutter/material.dart';
-import 'package:Festou/pages/telaInicial.dart';
-import 'telaSeletora.dart';
 
-class TelaLogin extends StatelessWidget {
-  TelaLogin({Key? key}) : super(key: key);
+class TelaEsqueciMinhaSenha extends StatelessWidget {
+  TelaEsqueciMinhaSenha({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
 
+  /*
+  botei borda no primeiro container
+  na listview, botar dentro de form e de um paddind, mas sem expanded ou flexible, isso nao aparece(segundo child do colum)
+  todos os items do listview, sao paddings. e neles ha textfield e botoes
+   */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
         Container(
-          //cores gradientes
+            //cores gradientes
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(0),
@@ -44,8 +47,7 @@ class TelaLogin extends StatelessWidget {
                     color: Colors.black.withOpacity(0.2),
                     spreadRadius: 4,
                     blurRadius: 2,
-                    offset: const Offset(
-                        0, 0), // changes position of shadow
+                    offset: const Offset(0, 0), // changes position of shadow
                   ),
                 ],
               ),
@@ -81,9 +83,7 @@ class TelaLogin extends StatelessWidget {
                   ),
                 ],
               ),
-            )
-
-        ),
+            )),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -91,12 +91,25 @@ class TelaLogin extends StatelessWidget {
               key: _formKey,
               child: ListView(
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      "Vamos enviar um link para redefinição de sua senha\n\n"
+                      "Para isso, confirme seu e-mail:",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontFamily: 'Valentine',
+                        color: Color.fromRGBO(216, 0, 255, 1),
+                      ),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                         decoration: const InputDecoration(
-                          enabledBorder:
-                          UnderlineInputBorder(borderSide: BorderSide(width: 1)),
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(width: 1)),
                           labelText: 'E-mail',
                           hintText: 'ex: nome@dominio.com',
                         ),
@@ -107,42 +120,6 @@ class TelaLogin extends StatelessWidget {
                           }
                           return null;
                         }),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                        enabledBorder:
-                        UnderlineInputBorder(borderSide: BorderSide(width: 1)),
-                        labelText: 'Senha',
-                        hintText: 'Digite sua senha',
-                      ),
-                      obscureText: true,
-                      validator: (text) {
-                        if (text!.isEmpty || text.length < 2) {
-                          return 'Senha inválida';
-                        }
-                        return null;
-                      }, //validator: (text),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (context) => TelaEsqueciMinhaSenha()),
-                          );
-                        },
-                        child: const Text(
-                          'Esqueci minha senha',
-                          textAlign: TextAlign.right,
-                        ),
-                      ),
-                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20.0),
@@ -161,7 +138,8 @@ class TelaLogin extends StatelessWidget {
                               color: Colors.grey.withOpacity(0.5),
                               spreadRadius: 1,
                               blurRadius: 2,
-                              offset: const Offset(1, 3), // changes position of shadow
+                              offset: const Offset(
+                                  1, 3), // changes position of shadow
                             ),
                           ],
                         ),
@@ -169,15 +147,10 @@ class TelaLogin extends StatelessWidget {
                           height: 35,
                           child: OutlinedButton(
                             onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) => TelaSeletora()),
-                                );
-                              }
+                              //pra onde vai?
                             },
                             style: OutlinedButton.styleFrom(
-                              //elevation: 18,
+                                //elevation: 18,
                                 backgroundColor: Colors.white,
                                 minimumSize: const Size(300, 35),
                                 side: const BorderSide(
@@ -188,7 +161,7 @@ class TelaLogin extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(15.0),
                                 )),
                             child: const Text(
-                              "Login",
+                              "Enviar código",
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Color.fromRGBO(216, 0, 255, 1),
@@ -216,7 +189,8 @@ class TelaLogin extends StatelessWidget {
                               color: Colors.grey.withOpacity(0.5),
                               spreadRadius: 1,
                               blurRadius: 2,
-                              offset: const Offset(1, 3), // changes position of shadow
+                              offset: const Offset(
+                                  1, 3), // changes position of shadow
                             ),
                           ],
                         ),
@@ -226,14 +200,15 @@ class TelaLogin extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => const TelaInicial()),
+                                      builder: (context) => TelaLogin()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   minimumSize: const Size(300, 35),
                                   side: const BorderSide(
-                                      width: 2, color: Color.fromRGBO(125, 0, 254, 1)),
+                                      width: 2,
+                                      color: Color.fromRGBO(125, 0, 254, 1)),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15.0),
                                   )),
@@ -254,7 +229,6 @@ class TelaLogin extends StatelessWidget {
             ),
           ),
         ),
-
       ]),
     );
   }

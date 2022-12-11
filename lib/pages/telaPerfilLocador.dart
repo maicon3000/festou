@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaHomeLocatario.dart';
-import 'package:Festou/pages/telaInicial.dart';
-
 import 'telaDados.dart';
-import 'telaLogin.dart';
 
 class TelaPerfilLocador extends StatelessWidget {
   TelaPerfilLocador({Key? key}) : super(key: key);
@@ -17,11 +14,13 @@ class TelaPerfilLocador extends StatelessWidget {
       body: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/item3.jpg'),
+              Image.asset('assets/images/smile.png'),
+              const SizedBox(width: 20.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   Text('Espaco Alegria Kids'),
                   Text('Locador', style: TextStyle(fontSize: 10),),
                 ],
@@ -71,8 +70,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 3.0, left: 5.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
                           child: Text(
                             'Minhas conversas',
                             style: TextStyle(
@@ -82,8 +81,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0, right: 12.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
                           child: Divider(
                             height: 2.0,
                             color: Colors.black,
@@ -129,8 +128,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 3.0, left: 5.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
                           child: Text(
                             'Minhas notificações',
                             style: TextStyle(
@@ -140,8 +139,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0, right: 12.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
                           child: Divider(
                             height: 2.0,
                             color: Colors.black,
@@ -187,8 +186,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 3.0, left: 5.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
                           child: Text(
                             'Meus pagamentos',
                             style: TextStyle(
@@ -198,8 +197,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0, right: 12.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
                           child: Divider(
                             height: 2.0,
                             color: Colors.black,
@@ -245,8 +244,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 3.0, left: 5.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
                           child: Text(
                             'Meus espaços favoritos',
                             style: TextStyle(
@@ -256,8 +255,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0, right: 12.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
                           child: Divider(
                             height: 2.0,
                             color: Colors.black,
@@ -307,8 +306,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 3.0, left: 5.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
                           child: Text(
                             'Minhas informações da conta',
                             style: TextStyle(
@@ -318,8 +317,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0, right: 12.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
                           child: Divider(
                             height: 2.0,
                             color: Colors.black,
@@ -333,7 +332,7 @@ class TelaPerfilLocador extends StatelessWidget {
                     onPressed: () {
                       locaratio = true;
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => TelaHomeLocatario(/*true*/)),
+                        MaterialPageRoute(builder: (context) => const TelaHomeLocatario(/*true*/)),
                       );
                     },
                     child: Column(
@@ -370,8 +369,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 3.0, left: 5.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
                           child: Text(
                             'Meu perfil locatário',
                             style: TextStyle(
@@ -381,8 +380,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0, right: 12.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
                           child: Divider(
                             height: 2.0,
                             color: Colors.black,
@@ -428,8 +427,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 3.0, left: 5.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
                           child: Text(
                             '',
                             style: TextStyle(
@@ -439,8 +438,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0, right: 12.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
                           child: Divider(
                             height: 2.0,
                             color: Colors.black,
@@ -486,8 +485,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 3.0, left: 5.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
                           child: Text(
                             '',
                             style: TextStyle(
@@ -497,8 +496,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0, right: 12.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
                           child: Divider(
                             height: 2.0,
                             color: Colors.black,
@@ -544,8 +543,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 3.0, left: 5.0),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
                           child: Text(
                             '',
                             style: TextStyle(
@@ -555,8 +554,8 @@ class TelaPerfilLocador extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0, right: 12.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
                           child: Divider(
                             height: 2.0,
                             color: Colors.black,

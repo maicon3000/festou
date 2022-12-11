@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'telaCadastro.dart';
 import 'telaLogin.dart';
 
 class TelaInicial extends StatelessWidget {
   const TelaInicial({Key? key}) : super(key: key);
 
-  //final MaterialStateProperty<Float>? fixedSize;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class TelaInicial extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.6,
               child: Padding(
                 padding: const EdgeInsets.only(
