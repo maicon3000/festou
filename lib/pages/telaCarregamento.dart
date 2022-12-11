@@ -19,11 +19,11 @@ class _TelaCarregamentoState extends State<TelaCarregamento> {
             SplashScreen(
               seconds: 5,
 
-              navigateAfterSeconds: TelaInicial(),
+              navigateAfterSeconds: const TelaInicial(),
               loaderColor: Colors.transparent,
             ),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,

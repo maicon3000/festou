@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaPerfilLocador.dart';
-import 'package:Festou/pages/telaSeletora.dart';
-import 'package:Festou/pages/telaInicial.dart';
-import 'package:Festou/pages/telaLogin.dart';
+
 
 class TelaDados extends StatelessWidget {
   TelaDados({Key? key}) : super(key: key);
@@ -20,20 +18,34 @@ class TelaDados extends StatelessWidget {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Column(
-          children: [
+          children: const [
             Text(
               'Espaco Alegria Kids',
               style: TextStyle(
                 color: Colors.black,
               ),
-            ), Text('Rua Maria da Graça, 123, Maria da Graça - RJ',
-                style: TextStyle(fontSize: 12.0,
+            ),
+            Text('Rua Maria da Graça, 123, Maria da Graça - RJ',
+                style: TextStyle(
+                  fontSize: 12.0,
                   color: Colors.black,
                 ))
           ],
         ),
       ),
       body: Column(children: [
+        const Padding(
+          padding: EdgeInsets.only(top: 13.0),
+          child: Text(
+            "Quer alterar seus dados?\nPrimeiro, confirme sua senha:",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18.0,
+              fontFamily: 'Valentine',
+              color: Color.fromRGBO(216, 0, 255, 1),
+            ),
+          ),
+        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -52,6 +64,7 @@ class TelaDados extends StatelessWidget {
                         ),
                         validator: (text) {
                           if (text!.isEmpty) return 'CPJ/CNPJ invalido';
+                          return null;
                         }),
                   ),
                   Padding(
@@ -65,8 +78,10 @@ class TelaDados extends StatelessWidget {
                       ),
                       keyboardType: TextInputType.emailAddress,
                       validator: (text) {
-                        if (text!.isEmpty || !text.contains('@'))
+                        if (text!.isEmpty || !text.contains('@')) {
                           return 'E-mail inválido';
+                        }
+                        return null;
                       },
                     ),
                   ),
@@ -85,6 +100,7 @@ class TelaDados extends StatelessWidget {
                             keyboardType: TextInputType.number,
                             validator: (text) {
                               if (text!.isEmpty) return 'CEP inválido';
+                              return null;
                             },
                           ),
                         ),
@@ -175,8 +191,8 @@ class TelaDados extends StatelessWidget {
                                 decoration: const InputDecoration(
                                   enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
-                                        width: 1,
-                                      )),
+                                    width: 1,
+                                  )),
                                   labelText: 'Cidade',
                                   hintText: 'Digite sua cidade',
                                 ),
@@ -274,7 +290,8 @@ class TelaDados extends StatelessWidget {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaPerfilLocador()),
+                                      builder: (context) =>
+                                          TelaPerfilLocador()),
                                 );
                               }
                             },
@@ -289,7 +306,7 @@ class TelaDados extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(15.0),
                                 )),
                             child: const Text(
-                              "Cadastrar",
+                              "Confirmar",
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Color.fromRGBO(216, 0, 255, 1),
@@ -328,7 +345,8 @@ class TelaDados extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaInicial()),
+                                      builder: (context) =>
+                                          TelaPerfilLocador()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(
@@ -361,299 +379,3 @@ class TelaDados extends StatelessWidget {
     );
   }
 }
-/*
-import 'package:flutter/material.dart';
-import 'package:tela_1/pages/telaInicial.dart';
-import 'package:tela_1/pages/telaLogin.dart';
-
-class TelaCadastro extends StatelessWidget {
-  TelaCadastro({Key? key}) : super(key: key);
-
-  final _formKey = GlobalKey<FormState>();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color.fromRGBO(125, 0, 254, 1),
-                Color.fromRGBO(216, 0, 255, 1),
-              ],
-            ),
-          ),
-          child: Container(
-            //FUNDO BRANCO DA TELA
-            height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(27),
-                  topRight: Radius.circular(27),
-                  bottomLeft: Radius.circular(0),
-                  bottomRight: Radius.circular(0)),
-            ),
-            child: Column(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  decoration: BoxDecoration(
-                    color: const Color.fromRGBO(228, 201, 255, 1),
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(27),
-                        topRight: Radius.circular(27),
-                        bottomLeft: Radius.circular(27),
-                        bottomRight: Radius.circular(0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        spreadRadius: 4,
-                        blurRadius: 2,
-                        offset:
-                            const Offset(0, 0), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Stack(
-                        children: [
-                          Text(
-                            'Bem vindo ao\nFestou!',
-                            style: TextStyle(
-                              //color: Colors.indigo[800],
-                              fontSize: 25.0,
-                              fontFamily: 'Valentine',
-                              foreground: Paint()
-                                ..style = PaintingStyle.stroke
-                                ..strokeWidth = 1
-                                ..color = Colors.white,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const Text(
-                            'Bem vindo ao\nFestou!',
-                            style: TextStyle(
-                                fontSize: 25.0,
-                                fontFamily: 'Valentine',
-                                color: Color.fromRGBO(173, 0, 255, 1)),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Form(
-                    key: _formKey,
-                    child: ListView(
-                      shrinkWrap: true,
-                      children: [
-                        TextFormField(
-                            decoration: const InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(width: 1)),
-                              labelText: 'CPF/CNPJ',
-                              hintText: 'Digite seu CPF ou CNPJ',
-                            ),
-                            validator: (text) {
-                              if (text!.isEmpty) return 'CPJ/CNPJ invalido';
-                            }),
-                        TextFormField(
-                          decoration: const InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(width: 1)),
-                            labelText: 'E-mail',
-                            hintText: 'Digite seu e-mail',
-                          ),
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (text) {
-                            if (text!.isEmpty || !text.contains('@'))
-                              return 'E-mail inválido';
-                          },
-                        ),
-                        Row(
-                          children: [
-                            Flexible(
-                              child: TextFormField(
-                                decoration: const InputDecoration(
-                                  enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(width: 1)),
-                                  labelText: 'CEP',
-                                  hintText: 'Digite o CEP',
-                                ),
-                                keyboardType: TextInputType.number,
-                                validator: (text) {
-                                  if (text!.isEmpty) return 'CEP inválido';
-                                },
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 15.0),
-                              child: OutlinedButton(
-                                //botao buscar
-                                onPressed: () {},
-                                style: OutlinedButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  minimumSize: Size(
-                                    MediaQuery.of(context).size.width * 0.2,
-                                    40,
-                                  ),
-                                  side: const BorderSide(
-                                    width: 2,
-                                    color: Color.fromRGBO(216, 0, 255, 1),
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25.0),
-                                  ),
-                                ),
-                                child: const FittedBox(
-                                  child: Text(
-                                    'Buscar',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      color: Color.fromRGBO(216, 0, 255, 1),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Flexible(
-                              flex: 2,
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 16.0),
-                                child: TextFormField(
-                                    decoration: const InputDecoration(
-                                      enabledBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(width: 1)),
-                                      labelText: 'Endereço',
-                                      hintText: 'Digite seu endereço',
-                                    ),
-                                    keyboardType: TextInputType.number,
-                                    validator: (text) {
-                                      if (text!.isEmpty) {
-                                        return 'Endereço inválido';
-                                      }
-                                      return null;
-                                    }),
-                              ),
-                            ),
-                            Flexible(
-                              child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(width: 1)),
-                                    labelText: 'Número',
-                                    hintText: 'Digite o número',
-                                  ),
-                                  keyboardType: TextInputType.number,
-                                  validator: (text) {
-                                    if (text!.isEmpty) {
-                                      return 'Número inválido';
-                                    }
-                                    return null;
-                                  }),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Flexible(
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 8.0),
-                                child: TextFormField(
-                                    decoration: const InputDecoration(
-                                      enabledBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(
-                                        width: 1,
-                                      )),
-                                      labelText: 'Cidade',
-                                      hintText: 'Digite sua cidade',
-                                    ),
-                                    validator: (text) {
-                                      if (text!.isEmpty) {
-                                        return 'Cidade inválida';
-                                      }
-                                      return null;
-                                    }),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: TextFormField(
-                                    decoration: const InputDecoration(
-                                      enabledBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(width: 1)),
-                                      labelText: 'Bairro',
-                                      hintText: 'Digite seu bairro',
-                                    ),
-                                    validator: (text) {
-                                      if (text!.isEmpty) {
-                                        return 'Bairro inválido';
-                                      }
-                                      return null;
-                                    }),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Flexible(
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(width: 1)),
-                              labelText: 'Senha',
-                              hintText: 'Digite sua senha',
-                            ),
-                            obscureText: true,
-                            validator: (text) {
-                              if (text!.isEmpty || text.length < 6) {
-                                return 'Senha inválida';
-                              }
-                              return null;
-                            }, //validator: (text),
-                          ),
-                        ),
-                        Flexible(
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(width: 1)),
-                              labelText: 'Confirme sua senha',
-                              hintText: 'Digite novamente sua senha',
-                            ),
-                            obscureText: true,
-                            validator: (text) {
-                              if (text!.isEmpty || text.length < 6) {
-                                return 'Senha inválida';
-                              }
-                              return null;
-                            }, //validator: (text),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
- */

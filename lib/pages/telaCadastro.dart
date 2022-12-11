@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaSeletora.dart';
 import 'package:Festou/pages/telaInicial.dart';
-import 'package:Festou/pages/telaLogin.dart';
 
 class TelaCadastro extends StatelessWidget {
   TelaCadastro({Key? key}) : super(key: key);
@@ -85,8 +84,8 @@ class TelaCadastro extends StatelessWidget {
             key: _formKey,
             child: ListView(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 8.0),
                   child: Text("Preencha os campos abaixo:", style: TextStyle(fontSize: 18.0, fontFamily: 'Valentine', color: Color.fromRGBO(216, 0, 255, 1),),),
                 ),
                 Padding(
@@ -100,6 +99,7 @@ class TelaCadastro extends StatelessWidget {
                       ),
                       validator: (text) {
                         if (text!.isEmpty) return 'CPJ/CNPJ invalido';
+                        return null;
                       }),
                 ),
                 Padding(
@@ -113,8 +113,10 @@ class TelaCadastro extends StatelessWidget {
                     ),
                     keyboardType: TextInputType.emailAddress,
                     validator: (text) {
-                      if (text!.isEmpty || !text.contains('@'))
+                      if (text!.isEmpty || !text.contains('@')) {
                         return 'E-mail inválido';
+                      }
+                      return null;
                     },
                   ),
                 ),
@@ -133,6 +135,7 @@ class TelaCadastro extends StatelessWidget {
                           keyboardType: TextInputType.number,
                           validator: (text) {
                             if (text!.isEmpty) return 'CEP inválido';
+                            return null;
                           },
                         ),
                       ),
@@ -376,7 +379,7 @@ class TelaCadastro extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                    builder: (context) => TelaInicial()),
+                                    builder: (context) => const TelaInicial()),
                               );
                             },
                             style: OutlinedButton.styleFrom(

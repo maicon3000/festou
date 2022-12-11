@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaPerfilLocador.dart';
 import 'package:Festou/pages/contratosPage.dart';
 import 'package:Festou/pages/telaBuscar.dart';
-import 'package:Festou/pages/telaPerfilLocatario.dart';
 import 'telaHomeLocador.dart';
-import 'telaHomeLocatario.dart';
 
 class TelaSeletora extends StatefulWidget {
-  TelaSeletora({super.key});
+  const TelaSeletora({super.key});
 
   @override
   TelaSeletoraState createState() => TelaSeletoraState();
@@ -33,27 +31,32 @@ class TelaSeletoraState extends State<TelaSeletora> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: PageView(
-        controller: pc,
+      body: IgnorePointer(
+        ignoring: false,
+        child: PageView(
 
-          /*if(locatario) {
+
+          controller: pc,
+          onPageChanged: setPaginaAtual,
+
+            /*if(locatario) {
     children: [
-            TelaHomeLocatario(),
-            BuscaPage(),
-            ContratosPage(),
-            TelaPerfilLocatario(),]
-          } else { */
+              TelaHomeLocatario(),
+              BuscaPage(),
+              ContratosPage(),
+              TelaPerfilLocatario(),]
+            } else { */
     children: [
-            TelaHomeLocador(),
-            BuscaPage(),
-            ContratosPage(),
-            TelaPerfilLocador(),],
-        onPageChanged: setPaginaAtual,
+              const TelaHomeLocador(),
+              const BuscaPage(),
+              const ContratosPage(),
+              TelaPerfilLocador(),],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: paginaAtual,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Busca'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Contratos'),
@@ -61,7 +64,7 @@ class TelaSeletoraState extends State<TelaSeletora> {
         ],
         onTap: (pagina) {
           pc.animateToPage(pagina,
-              duration: Duration(milliseconds: 400), curve: Curves.ease);
+              duration: const Duration(milliseconds: 400), curve: Curves.ease);
         },
       ),
     );
