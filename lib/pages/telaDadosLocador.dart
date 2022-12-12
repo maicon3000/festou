@@ -1,0 +1,343 @@
+import 'package:flutter/material.dart';
+import 'package:Festou/pages/telaPerfilLocador.dart';
+
+
+class TelaDadosLocador extends StatelessWidget {
+  TelaDadosLocador({Key? key}) : super(key: key);
+
+  final _formKey = GlobalKey<FormState>();
+
+  /*
+  copiado do telaLogin, trocando os texfields e botoes, botando os paddings, tirando 2 flexible(2 ultimos textfield)
+   */
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Column(
+          children: const [
+            Text(
+              'Espaco Alegria Kids',
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+            Text('Rua Maria da Graça, 123, Maria da Graça - RJ',
+                style: TextStyle(
+                  fontSize: 12.0,
+                  color: Colors.black,
+                ))
+          ],
+        ),
+      ),
+      body: Column(children: [
+        const Padding(
+          padding: EdgeInsets.only(top: 13.0),
+          child: Text(
+            "Altere seus dados\nVoce nao podera alterar de novo em 30 dias:",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18.0,
+              fontFamily: 'Valentine',
+              color: Color.fromRGBO(216, 0, 255, 1),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Form(
+              key: _formKey,
+              child: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: TextFormField(
+                        decoration: const InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(width: 1)),
+                          labelText: 'CPF/CNPJ',
+                          hintText: 'Digite seu CPF ou CNPJ',
+                        ),
+                        validator: (text) {
+                          if (text!.isEmpty) return 'CPJ/CNPJ invalido';
+                          return null;
+                        }),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1)),
+                        labelText: 'E-mail',
+                        hintText: 'Digite seu e-mail',
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (text) {
+                        if (text!.isEmpty || !text.contains('@')) {
+                          return 'E-mail inválido';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: TextFormField(
+                            decoration: const InputDecoration(
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(width: 1)),
+                              labelText: 'CEP',
+                              hintText: 'Digite o CEP',
+                            ),
+                            keyboardType: TextInputType.number,
+                            validator: (text) {
+                              if (text!.isEmpty) return 'CEP inválido';
+                              return null;
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15.0),
+                          child: OutlinedButton(
+                            //botao buscar
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              minimumSize: Size(
+                                MediaQuery.of(context).size.width * 0.2,
+                                40,
+                              ),
+                              side: const BorderSide(
+                                width: 2,
+                                color: Color.fromRGBO(216, 0, 255, 1),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                              ),
+                            ),
+                            child: const FittedBox(
+                              child: Text(
+                                'Buscar',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Color.fromRGBO(216, 0, 255, 1),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          flex: 2,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 16.0),
+                            child: TextFormField(
+                                decoration: const InputDecoration(
+                                  enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(width: 1)),
+                                  labelText: 'Endereço',
+                                  hintText: 'Digite seu endereço',
+                                ),
+                                validator: (text) {
+                                  if (text!.isEmpty) {
+                                    return 'Endereço inválido';
+                                  }
+                                  return null;
+                                }),
+                          ),
+                        ),
+                        Flexible(
+                          child: TextFormField(
+                              decoration: const InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(width: 1)),
+                                labelText: 'Número',
+                                hintText: 'Digite o número',
+                              ),
+                              keyboardType: TextInputType.number,
+                              validator: (text) {
+                                if (text!.isEmpty) {
+                                  return 'Número inválido';
+                                }
+                                return null;
+                              }),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: TextFormField(
+                                decoration: const InputDecoration(
+                                  enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        width: 1,
+                                      )),
+                                  labelText: 'Cidade',
+                                  hintText: 'Digite sua cidade',
+                                ),
+                                validator: (text) {
+                                  if (text!.isEmpty) {
+                                    return 'Cidade inválida';
+                                  }
+                                  return null;
+                                }),
+                          ),
+                        ),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: TextFormField(
+                                decoration: const InputDecoration(
+                                  enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(width: 1)),
+                                  labelText: 'Bairro',
+                                  hintText: 'Digite seu bairro',
+                                ),
+                                validator: (text) {
+                                  if (text!.isEmpty) {
+                                    return 'Bairro inválido';
+                                  }
+                                  return null;
+                                }),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 40.0),
+                    child: FractionallySizedBox(
+                      widthFactor: 0.9,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                              bottomLeft: Radius.circular(15),
+                              bottomRight: Radius.circular(15)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 1,
+                              blurRadius: 2,
+                              offset: const Offset(
+                                  1, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: SizedBox(
+                          height: 35,
+                          child: OutlinedButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => TelaPerfilLocador()),
+                                );
+                              }
+                            },
+                            style: OutlinedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                minimumSize: const Size(300, 35),
+                                side: const BorderSide(
+                                  width: 2,
+                                  color: Color.fromRGBO(216, 0, 255, 1),
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                )),
+                            child: const Text(
+                              "Alterar",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromRGBO(216, 0, 255, 1),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    child: FractionallySizedBox(
+                      widthFactor: 0.9,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                              bottomLeft: Radius.circular(15),
+                              bottomRight: Radius.circular(15)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 1,
+                              blurRadius: 2,
+                              offset: const Offset(
+                                  1, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: SizedBox(
+                          height: 35,
+                          child: OutlinedButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => TelaPerfilLocador()),
+                                );
+                              },
+                              style: OutlinedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  minimumSize: const Size(300, 35),
+                                  side: const BorderSide(
+                                      width: 2,
+                                      color: Color.fromRGBO(125, 0, 254, 1)),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  )),
+                              child: const Text(
+                                "Voltar",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Color.fromRGBO(125, 0, 254, 1),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ]),
+    );
+  }
+}

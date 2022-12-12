@@ -1,3 +1,8 @@
+import 'package:Festou/pages/telaConfirmacaoSenhaEspaco.dart';
+import 'package:Festou/pages/telaConfirmacaorSenhaLocador.dart';
+import 'package:Festou/pages/telaDadosLocador.dart';
+import 'package:Festou/pages/telaHomeLocatario.dart';
+import 'package:Festou/pages/telaPerfilLocador.dart';
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaHomeLocador.dart';
 
@@ -10,8 +15,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: TelaHomeLocador(),
+    return  MaterialApp(
+      home: TelaPerfilLocador(),
     );
   }
 }
+
+/*
+telaConfirmarSenha para o locatario anunciar e para o locador/locatario trocar os dados
+telaDados para locador/locatario
+
+ */

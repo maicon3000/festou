@@ -1,18 +1,19 @@
 import 'package:Festou/pages/telaHomeLocatario.dart';
+import 'package:Festou/pages/telaPerfilLocatario.dart';
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaPerfilLocador.dart';
 import 'package:Festou/pages/contratosPage.dart';
 import 'package:Festou/pages/telaBuscar.dart';
 import 'telaHomeLocador.dart';
 
-class TelaSeletora extends StatefulWidget {
-  const TelaSeletora({super.key});
+class TelaSeletoraLocatario extends StatefulWidget {
+  const TelaSeletoraLocatario({super.key});
 
   @override
-  TelaSeletoraState createState() => TelaSeletoraState();
+  TelaSeletoraLocatarioState createState() => TelaSeletoraLocatarioState();
 }
 
-class TelaSeletoraState extends State<TelaSeletora> {
+class TelaSeletoraLocatarioState extends State<TelaSeletoraLocatario> {
   int paginaAtual = 0;
   late PageController pc;
 
@@ -40,18 +41,18 @@ class TelaSeletoraState extends State<TelaSeletora> {
           controller: pc,
           onPageChanged: setPaginaAtual,
 
-            /*if(locatario) {
+          /*if(locatario) {
     children: [
               TelaHomeLocatario(),
               BuscaPage(),
               ContratosPage(),
               TelaPerfilLocatario(),]
             } else { */
-    children: [
-              const TelaHomeLocador(),
-              const BuscaPage(),
-              const ContratosPage(),
-              TelaPerfilLocador(),],
+          children: const [
+            TelaHomeLocatario(),
+            BuscaPage(),
+            ContratosPage(),
+            TelaPerfilLocatario(),],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(

@@ -1,5 +1,8 @@
+import 'package:Festou/pages/telaHomeLocatario.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+
+import 'TelaSeletoraLocatario.dart';
 
 class TelaCadastroEspaco extends StatefulWidget {
   TelaCadastroEspaco({Key? key}) : super(key: key);
@@ -396,7 +399,7 @@ class _TelaCadastroEspacoState extends State<TelaCadastroEspaco> {
                             if (_formKey.currentState!.validate()) {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                    builder: (context) => TelaCadastroEspaco()),
+                                    builder: (context) => TelaSeletoraLocatario()),
                               );
                             }
                           },
@@ -450,7 +453,7 @@ class _TelaCadastroEspacoState extends State<TelaCadastroEspaco> {
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                    builder: (context) => TelaCadastroEspaco()),
+                                    builder: (context) => TelaSeletoraLocatario()),
                               );
                             },
                             style: OutlinedButton.styleFrom(
