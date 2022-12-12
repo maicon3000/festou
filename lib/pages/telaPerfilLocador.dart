@@ -1,6 +1,8 @@
+import 'package:Festou/pages/TelaSeletoraLocatario.dart';
+import 'package:Festou/pages/telaConfirmacaorSenhaLocador.dart';
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaHomeLocatario.dart';
-import 'telaDados.dart';
+import 'telaDadosLocador.dart';
 
 class TelaPerfilLocador extends StatelessWidget {
   TelaPerfilLocador({Key? key}) : super(key: key);
@@ -269,7 +271,7 @@ class TelaPerfilLocador extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => TelaDados()),
+                        MaterialPageRoute(builder: (context) => TelaConfirmacaoSenhaLocador()),
                       );
                     },
                     child: Column(
@@ -332,7 +334,7 @@ class TelaPerfilLocador extends StatelessWidget {
                     onPressed: () {
                       locaratio = true;
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => const TelaHomeLocatario(/*true*/)),
+                        MaterialPageRoute(builder: (context) => const TelaSeletoraLocatario(/*true*/)),
                       );
                     },
                     child: Column(

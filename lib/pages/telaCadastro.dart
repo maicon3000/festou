@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Festou/pages/telaSeletora.dart';
+import 'package:Festou/pages/telaSeletoraLocador.dart';
 import 'package:Festou/pages/telaInicial.dart';
 
 class TelaCadastro extends StatelessWidget {
@@ -325,7 +325,7 @@ class TelaCadastro extends StatelessWidget {
                             if (_formKey.currentState!.validate()) {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                    builder: (context) => TelaSeletora()),
+                                    builder: (context) => TelaSeletoraLocador()),
                               );
                             }
                           },

@@ -1,88 +1,50 @@
-import 'package:Festou/pages/telaEsqueciMinhaSenha.dart';
+import 'package:Festou/pages/telaDadosLocador.dart';
 import 'package:flutter/material.dart';
-import 'package:Festou/pages/telaInicial.dart';
-import 'telaSeletoraLocador.dart';
+import 'package:Festou/pages/telaPerfilLocador.dart';
 
-class TelaLogin extends StatelessWidget {
-  TelaLogin({Key? key}) : super(key: key);
+
+class TelaConfirmacaoSenhaLocador extends StatelessWidget {
+  TelaConfirmacaoSenhaLocador({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
+
+  /*
+fazer um p locador e outra p lcoatario  ? */
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        Container(
-          //cores gradientes
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(0),
-                  bottomLeft: Radius.circular(27),
-                  bottomRight: Radius.circular(0)),
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color.fromRGBO(125, 0, 254, 1),
-                  Color.fromRGBO(216, 0, 255, 1),
-                ],
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Column(
+          children: const [
+            Text(
+              'Espaco Alegria Kids',
+              style: TextStyle(
+                color: Colors.black,
               ),
             ),
-            child: Container(
-              //container com a cor lilas
-              height: MediaQuery.of(context).size.height * 0.15,
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(228, 201, 255, 1),
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(27),
-                    topRight: Radius.circular(27),
-                    bottomLeft: Radius.circular(27),
-                    bottomRight: Radius.circular(0)),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    spreadRadius: 4,
-                    blurRadius: 2,
-                    offset: const Offset(
-                        0, 0), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Row(
-                //dentro desse container, bota uma row para botar as palavras em cima das outras
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Stack(
-                    //usar stack para isso
-                    children: [
-                      Text(
-                        'Bem vindo ao\nFestou!',
-                        style: TextStyle(
-                          //color: Colors.indigo[800],
-                          fontSize: 25.0,
-                          fontFamily: 'Valentine',
-                          foreground: Paint()
-                            ..style = PaintingStyle.stroke
-                            ..strokeWidth = 1
-                            ..color = Colors.white,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const Text(
-                        'Bem vindo ao\nFestou!',
-                        style: TextStyle(
-                            fontSize: 25.0,
-                            fontFamily: 'Valentine',
-                            color: Color.fromRGBO(173, 0, 255, 1)),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )
-
+            Text('Rua Maria da Graça, 123, Maria da Graça - RJ',
+                style: TextStyle(
+                  fontSize: 12.0,
+                  color: Colors.black,
+                ))
+          ],
+        ),
+      ),
+      body: Column(children: [
+        const Padding(
+          padding: EdgeInsets.only(top: 13.0),
+          child: Text(
+            "Quer alterar seus dados?\nPrimeiro, confirme sua senha:",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18.0,
+              fontFamily: 'Valentine',
+              color: Color.fromRGBO(216, 0, 255, 1),
+            ),
+          ),
         ),
         Expanded(
           child: Padding(
@@ -92,34 +54,17 @@ class TelaLogin extends StatelessWidget {
               child: ListView(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
-                        decoration: const InputDecoration(
-                          enabledBorder:
-                          UnderlineInputBorder(borderSide: BorderSide(width: 1)),
-                          labelText: 'E-mail',
-                          hintText: 'ex: nome@dominio.com',
-                        ),
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (text) {
-                          if (text!.isEmpty || !text.contains('')) {
-                            return 'E-mail inválido';
-                          }
-                          return null;
-                        }),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextFormField(
                       decoration: const InputDecoration(
-                        enabledBorder:
-                        UnderlineInputBorder(borderSide: BorderSide(width: 1)),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1)),
                         labelText: 'Senha',
                         hintText: 'Digite sua senha',
                       ),
                       obscureText: true,
                       validator: (text) {
-                        if (text!.isEmpty || text.length < 2) {
+                        if (text!.isEmpty || text.length < 6) {
                           return 'Senha inválida';
                         }
                         return null;
@@ -127,25 +72,7 @@ class TelaLogin extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (context) => TelaEsqueciMinhaSenha()),
-                          );
-                        },
-                        child: const Text(
-                          'Esqueci minha senha',
-                          textAlign: TextAlign.right,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
+                    padding: const EdgeInsets.only(top: 40.0),
                     child: FractionallySizedBox(
                       widthFactor: 0.9,
                       child: Container(
@@ -161,7 +88,8 @@ class TelaLogin extends StatelessWidget {
                               color: Colors.grey.withOpacity(0.5),
                               spreadRadius: 1,
                               blurRadius: 2,
-                              offset: const Offset(1, 3), // changes position of shadow
+                              offset: const Offset(
+                                  1, 3), // changes position of shadow
                             ),
                           ],
                         ),
@@ -172,12 +100,11 @@ class TelaLogin extends StatelessWidget {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaSeletoraLocador()),
+                                      builder: (context) => TelaDadosLocador()),
                                 );
                               }
                             },
                             style: OutlinedButton.styleFrom(
-                              //elevation: 18,
                                 backgroundColor: Colors.white,
                                 minimumSize: const Size(300, 35),
                                 side: const BorderSide(
@@ -188,7 +115,7 @@ class TelaLogin extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(15.0),
                                 )),
                             child: const Text(
-                              "Login",
+                              "Confirmar",
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Color.fromRGBO(216, 0, 255, 1),
@@ -201,7 +128,7 @@ class TelaLogin extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
+                    padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                     child: FractionallySizedBox(
                       widthFactor: 0.9,
                       child: Container(
@@ -216,7 +143,8 @@ class TelaLogin extends StatelessWidget {
                               color: Colors.grey.withOpacity(0.5),
                               spreadRadius: 1,
                               blurRadius: 2,
-                              offset: const Offset(1, 3), // changes position of shadow
+                              offset: const Offset(
+                                  1, 3), // changes position of shadow
                             ),
                           ],
                         ),
@@ -226,14 +154,15 @@ class TelaLogin extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => const TelaInicial()),
+                                      builder: (context) => TelaPerfilLocador()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   minimumSize: const Size(300, 35),
                                   side: const BorderSide(
-                                      width: 2, color: Color.fromRGBO(125, 0, 254, 1)),
+                                      width: 2,
+                                      color: Color.fromRGBO(125, 0, 254, 1)),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15.0),
                                   )),
@@ -248,13 +177,12 @@ class TelaLogin extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
           ),
         ),
-
       ]),
     );
   }

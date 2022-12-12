@@ -1,9 +1,10 @@
+import 'package:Festou/pages/telaPerfilLocatario.dart';
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaPerfilLocador.dart';
 
 
-class TelaDados extends StatelessWidget {
-  TelaDados({Key? key}) : super(key: key);
+class TelaDadosLocatario extends StatelessWidget {
+  TelaDadosLocatario({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -37,7 +38,7 @@ class TelaDados extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.only(top: 13.0),
           child: Text(
-            "Quer alterar seus dados?\nPrimeiro, confirme sua senha:",
+            "Altere seus dados\nVoce nao podera alterar de novo em 30 dias:",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18.0,
@@ -226,42 +227,6 @@ class TelaDados extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(width: 1)),
-                        labelText: 'Senha',
-                        hintText: 'Digite sua senha',
-                      ),
-                      obscureText: true,
-                      validator: (text) {
-                        if (text!.isEmpty || text.length < 6) {
-                          return 'Senha inválida';
-                        }
-                        return null;
-                      }, //validator: (text),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(width: 1)),
-                        labelText: 'Confirme sua senha',
-                        hintText: 'Digite novamente sua senha',
-                      ),
-                      obscureText: true,
-                      validator: (text) {
-                        if (text!.isEmpty || text.length < 6) {
-                          return 'Senha inválida';
-                        }
-                        return null;
-                      }, //validator: (text),
-                    ),
-                  ),
-                  Padding(
                     padding: const EdgeInsets.only(top: 40.0),
                     child: FractionallySizedBox(
                       widthFactor: 0.9,
@@ -290,7 +255,7 @@ class TelaDados extends StatelessWidget {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaPerfilLocador()),
+                                      builder: (context) => TelaPerfilLocatario()),
                                 );
                               }
                             },
@@ -344,7 +309,7 @@ class TelaDados extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaPerfilLocador()),
+                                      builder: (context) => TelaPerfilLocatario()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(
