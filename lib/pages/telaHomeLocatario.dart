@@ -1,3 +1,4 @@
+import 'package:Festou/pages/telaCadastroEspaco.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'myImageView.dart';
@@ -78,7 +79,11 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
                       child: FloatingActionButton(
                         backgroundColor: Colors.green,
                         elevation: 0,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => TelaCadastroEspaco(),),);
+                        },
                         child: const Icon(
                           Icons.add,
                           size: 15,
