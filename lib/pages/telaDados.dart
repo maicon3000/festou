@@ -54,7 +54,7 @@ class TelaDados extends StatelessWidget {
               child: ListView(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextFormField(
                         decoration: const InputDecoration(
                           enabledBorder: UnderlineInputBorder(
@@ -68,7 +68,7 @@ class TelaDados extends StatelessWidget {
                         }),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextFormField(
                       decoration: const InputDecoration(
                         enabledBorder: UnderlineInputBorder(
@@ -86,7 +86,7 @@ class TelaDados extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Row(
                       children: [
                         Flexible(
@@ -139,7 +139,7 @@ class TelaDados extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Row(
                       children: [
                         Flexible(
@@ -181,7 +181,7 @@ class TelaDados extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Row(
                       children: [
                         Flexible(
@@ -191,8 +191,8 @@ class TelaDados extends StatelessWidget {
                                 decoration: const InputDecoration(
                                   enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
-                                    width: 1,
-                                  )),
+                                        width: 1,
+                                      )),
                                   labelText: 'Cidade',
                                   hintText: 'Digite sua cidade',
                                 ),
@@ -206,7 +206,7 @@ class TelaDados extends StatelessWidget {
                         ),
                         Flexible(
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
                             child: TextFormField(
                                 decoration: const InputDecoration(
                                   enabledBorder: UnderlineInputBorder(
@@ -226,7 +226,7 @@ class TelaDados extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextFormField(
                       decoration: const InputDecoration(
                         enabledBorder: UnderlineInputBorder(
@@ -244,7 +244,7 @@ class TelaDados extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextFormField(
                       decoration: const InputDecoration(
                         enabledBorder: UnderlineInputBorder(
@@ -262,7 +262,7 @@ class TelaDados extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(top: 40.0),
                     child: FractionallySizedBox(
                       widthFactor: 0.9,
                       child: Container(
@@ -290,8 +290,7 @@ class TelaDados extends StatelessWidget {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          TelaPerfilLocador()),
+                                      builder: (context) => TelaPerfilLocador()),
                                 );
                               }
                             },
@@ -306,7 +305,7 @@ class TelaDados extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(15.0),
                                 )),
                             child: const Text(
-                              "Confirmar",
+                              "Alterar",
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Color.fromRGBO(216, 0, 255, 1),
@@ -319,7 +318,7 @@ class TelaDados extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                     child: FractionallySizedBox(
                       widthFactor: 0.9,
                       child: Container(
@@ -345,8 +344,7 @@ class TelaDados extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          TelaPerfilLocador()),
+                                      builder: (context) => TelaPerfilLocador()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(
