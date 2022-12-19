@@ -1,9 +1,9 @@
-import 'package:Festou/pages/telaHomeLocatario.dart';
+import 'package:Festou/pages/telaHomeLocador.dart';
 import 'package:flutter/material.dart';
-import 'package:Festou/pages/telaPerfilLocador.dart';
+import 'package:Festou/pages/telaPerfilLocatario.dart';
 import 'package:Festou/pages/contratosPage.dart';
 import 'package:Festou/pages/telaBuscar.dart';
-import 'telaHomeLocador.dart';
+import 'telaHomeLocatario.dart';
 
 class TelaSeletoraLocador extends StatefulWidget {
   const TelaSeletoraLocador({super.key});
@@ -48,10 +48,10 @@ class TelaSeletoraLocadorState extends State<TelaSeletoraLocador> {
               TelaPerfilLocatario(),]
             } else { */
     children: [
-              const TelaHomeLocador(),
+              const TelaHomeLocatario(),
               const BuscaPage(),
               const ContratosPage(),
-              TelaPerfilLocador(),],
+              TelaPerfilLocatario(),],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(

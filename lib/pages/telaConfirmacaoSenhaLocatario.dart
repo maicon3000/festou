@@ -1,8 +1,8 @@
 import 'package:Festou/pages/telaDadosLocador.dart';
 import 'package:Festou/pages/telaDadosLocatario.dart';
-import 'package:Festou/pages/telaPerfilLocatario.dart';
-import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaPerfilLocador.dart';
+import 'package:flutter/material.dart';
+import 'package:Festou/pages/telaPerfilLocatario.dart';
 
 
 class TelaConfirmacaoSenhaLocatario extends StatelessWidget {
@@ -156,7 +156,7 @@ fazer um p locador e outra p lcoatario  ? */
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaPerfilLocatario()),
+                                      builder: (context) => TelaPerfilLocador()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(

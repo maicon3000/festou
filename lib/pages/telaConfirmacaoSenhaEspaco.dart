@@ -1,8 +1,8 @@
 import 'package:Festou/pages/telaCadastroEspaco.dart';
 import 'package:Festou/pages/telaDadosLocador.dart';
-import 'package:Festou/pages/telaHomeLocatario.dart';
+import 'package:Festou/pages/telaHomeLocador.dart';
 import 'package:flutter/material.dart';
-import 'package:Festou/pages/telaPerfilLocador.dart';
+import 'package:Festou/pages/telaPerfilLocatario.dart';
 
 import 'TelaSeletoraLocatario.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Festou/pages/telaPerfilLocador.dart';
+import 'package:Festou/pages/telaPerfilLocatario.dart';
 
 
 class TelaDadosLocador extends StatelessWidget {
@@ -254,7 +254,7 @@ class TelaDadosLocador extends StatelessWidget {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaPerfilLocador()),
+                                      builder: (context) => TelaPerfilLocatario()),
                                 );
                               }
                             },
@@ -308,7 +308,7 @@ class TelaDadosLocador extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => TelaPerfilLocador()),
+                                      builder: (context) => TelaPerfilLocatario()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(
