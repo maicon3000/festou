@@ -1,13 +1,16 @@
 import 'package:Festou/pages/TelaSeletoraLocatario.dart';
 import 'package:Festou/pages/telaConfirmacaorSenhaLocador.dart';
+import 'package:Festou/pages/telaLogin.dart';
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaHomeLocatario.dart';
+import '../blocs/loginBloc.dart';
 import 'telaDadosLocador.dart';
 
 class TelaPerfilLocador extends StatelessWidget {
   TelaPerfilLocador({Key? key}) : super(key: key);
 
   var locaratio = false;
+  final _loginBloc = LoginBloc();
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +27,13 @@ class TelaPerfilLocador extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text('Espaco Alegria Kids'),
-                  Text('Locador', style: TextStyle(fontSize: 10),),
+                  Text(
+                    'Locador',
+                    style: TextStyle(fontSize: 10),
+                  ),
                 ],
               )
             ],
-
           ),
           Expanded(
             child: Padding(
@@ -271,7 +276,9 @@ class TelaPerfilLocador extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => TelaConfirmacaoSenhaLocador()),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                TelaConfirmacaoSenhaLocador()),
                       );
                     },
                     child: Column(
@@ -334,7 +341,9 @@ class TelaPerfilLocador extends StatelessWidget {
                     onPressed: () {
                       locaratio = true;
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => const TelaSeletoraLocatario(/*true*/)),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const TelaSeletoraLocatario(/*true*/)),
                       );
                     },
                     child: Column(
@@ -452,7 +461,21 @@ class TelaPerfilLocador extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _loginBloc.signOut();
+                      _loginBloc.outState.listen(
+                        (state) {
+                          switch (state) {
+                            case LoginState.IDLE:
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (context) => const TelaLogin(),
+                                ),
+                              );
+                          }
+                        },
+                      );
+                    },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

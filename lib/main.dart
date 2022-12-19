@@ -1,12 +1,10 @@
-import 'package:Festou/pages/telaConfirmacaoSenhaEspaco.dart';
-import 'package:Festou/pages/telaConfirmacaorSenhaLocador.dart';
-import 'package:Festou/pages/telaDadosLocador.dart';
-import 'package:Festou/pages/telaHomeLocatario.dart';
-import 'package:Festou/pages/telaPerfilLocador.dart';
+import 'package:Festou/pages/telaCarregamento.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:Festou/pages/telaHomeLocador.dart';
 
-void main(){
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -15,8 +13,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      home: TelaPerfilLocador(),
+    return  const MaterialApp(
+      home: TelaCarregamento(),
     );
   }
 }
@@ -24,5 +22,4 @@ class MyApp extends StatelessWidget {
 /*
 telaConfirmarSenha para o locatario anunciar e para o locador/locatario trocar os dados
 telaDados para locador/locatario
-
  */

@@ -1,6 +1,8 @@
 import 'package:Festou/pages/telaCadastroEspaco.dart';
 import 'package:Festou/pages/telaConfirmacaoSenhaEspaco.dart';
+import 'package:Festou/pages/telaEspaco.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'myImageView.dart';
 
@@ -13,6 +15,8 @@ class TelaHomeLocatario extends StatefulWidget {
 
 class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
   int currentPos = 0;
+
+  late DocumentSnapshot _snapshot;
 
   List<String> listPaths = [
     "assets/images/festou-logo.png",
@@ -40,8 +44,10 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
               style: TextStyle(
                 color: Colors.black,
               ),
-            ), Text('Rua Maria da Graça, 123, Maria da Graça - RJ',
-                style: TextStyle(fontSize: 12.0,
+            ),
+            Text('Rua Maria da Graça, 123, Maria da Graça - RJ',
+                style: TextStyle(
+                  fontSize: 12.0,
                   color: Colors.black,
                 ))
           ],
@@ -50,12 +56,13 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
       body: Stack(
         children: [
           ListView(
-            children: [Column(
-              children: [
-                Image.asset("assets/images/background.gif"),
-                Image.asset("assets/images/background.gif"),
-              ],
-            ),
+            children: [
+              Column(
+                children: [
+                  Image.asset("assets/images/background.gif"),
+                  Image.asset("assets/images/background.gif"),
+                ],
+              ),
             ],
           ),
           Column(
@@ -83,7 +90,12 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => TelaConfirmacaoSenhaEspaco(),),);
+                              builder: (context) => TelaEspaco(
+                                categoryId: '',
+                                //space: _snapshot,
+                              ),
+                            ),
+                          );
                         },
                         child: const Icon(
                           Icons.add,
@@ -143,7 +155,7 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                   backgroundColor:
-                                  const Color.fromRGBO(125, 0, 254, 1),
+                                      const Color.fromRGBO(125, 0, 254, 1),
                                   minimumSize: const Size(50, 45),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15.0),
@@ -198,7 +210,7 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                   backgroundColor:
-                                  const Color.fromRGBO(125, 0, 254, 1),
+                                      const Color.fromRGBO(125, 0, 254, 1),
                                   minimumSize: const Size(50, 45),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15.0),
@@ -253,7 +265,7 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                   backgroundColor:
-                                  const Color.fromRGBO(125, 0, 254, 1),
+                                      const Color.fromRGBO(125, 0, 254, 1),
                                   minimumSize: const Size(50, 45),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15.0),
