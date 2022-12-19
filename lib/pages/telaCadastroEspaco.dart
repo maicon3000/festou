@@ -1,4 +1,4 @@
-import 'package:Festou/pages/telaHomeLocatario.dart';
+import 'package:Festou/pages/telaHomeLocador.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
