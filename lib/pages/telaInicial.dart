@@ -1,10 +1,35 @@
+import 'package:Festou/pages/telaSeletoraLocador.dart';
 import 'package:flutter/material.dart';
+import '../blocs/loginBloc.dart';
 import 'telaCadastro.dart';
 import 'telaLogin.dart';
 
-class TelaInicial extends StatelessWidget {
+class TelaInicial extends StatefulWidget {
   const TelaInicial({Key? key}) : super(key: key);
 
+  @override
+  State<TelaInicial> createState() => _TelaInicialState();
+}
+
+class _TelaInicialState extends State<TelaInicial> {
+  final _loginBloc = LoginBloc();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _loginBloc.outState.listen(
+      (state) {
+        if (state == LoginState.SUCCESS) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const TelaSeletoraLocador(),
+            ),
+          );
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +55,7 @@ class TelaInicial extends StatelessWidget {
                   bottom: 10.0,
                 ),
                 child:
-                Image.asset('assets/images/festou-logo.png', width: 250.0),
+                    Image.asset('assets/images/festou-logo.png', width: 250.0),
               ),
             ),
             Container(
@@ -235,7 +260,7 @@ class TelaInicial extends StatelessWidget {
                             onPressed: () {},
                             style: OutlinedButton.styleFrom(
                                 backgroundColor:
-                                const Color.fromRGBO(125, 0, 254, 1),
+                                    const Color.fromRGBO(125, 0, 254, 1),
                                 minimumSize: const Size(300, 35),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15.0),
