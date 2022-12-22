@@ -1,5 +1,6 @@
 import 'package:Festou/pages/telaCadastroEspaco.dart';
 import 'package:Festou/pages/telaConfirmacaoSenhaEspaco.dart';
+import 'package:Festou/pages/telaEditarEspaco.dart';
 import 'package:Festou/pages/telaEspaco.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,14 +17,28 @@ class TelaHomeLocador extends StatefulWidget {
 class _TelaHomeLocadorState extends State<TelaHomeLocador> {
   int currentPos = 0;
 
-  late DocumentSnapshot _snapshot;
-
   List<String> listPaths = [
-    "assets/images/festou-logo.png",
-    "assets/images/item1.png",
-    "assets/images/item2.png",
-    "assets/images/item3.jpg",
+    "assets/images/festa.png",
+    "assets/images/festa2.png",
+    "assets/images/festa3.png",
+    "assets/images/festa4.png",
   ];
+
+  List<String> listPaths2 = [
+    "assets/images/salao1.png",
+    "assets/images/salao2.png",
+    "assets/images/salao3.png",
+    "assets/images/salao4.png",
+  ];
+
+  List<String> listPaths3 = [
+    "assets/images/salao5.png",
+    "assets/images/salao6.png",
+    "assets/images/salao7.png",
+    "assets/images/salao8.png",
+  ];
+
+  late DocumentSnapshot _snapshot;
 
   @override
   Widget build(BuildContext context) {
@@ -112,168 +127,258 @@ class _TelaHomeLocadorState extends State<TelaHomeLocador> {
                   shrinkWrap: true,
                   children: [
                     Card(
+                      margin:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                       child: InkWell(
-                        splashColor: Colors.blue.withAlpha(100),
+                        splashColor: Colors.red.withAlpha(100),
                         onTap: () {},
-                        child: Column(children: [
-                          SizedBox(
-                            height: 300.0,
-                            child: Swiper(
-                              itemCount: 4,
-                              pagination: const SwiperPagination(),
-                              autoplay: true,
-                              itemBuilder: (context, index) {
-                                return MyImageView(listPaths[index]);
-                              },
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.25,
+                              child: Swiper(
+                                itemCount: 4,
+                                autoplay: true,
+                                pagination: const SwiperPagination(),
+                                itemBuilder: (context, index) {
+                                  return MyImageView(listPaths2[index]);
+                                },
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10.0,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text('Espaço Alegria Kids'),
-                              Text('preço'),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 10.0,
-                          ),
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
-                              style: TextStyle(fontSize: 10.0),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 5.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text('Espaço Alegria Kids'),
+                                  Text("R\$250,00/h"),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.topRight,
-                            height: 18,
-                            //width
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      const Color.fromRGBO(125, 0, 254, 1),
-                                  minimumSize: const Size(50, 45),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  )),
-                              child: const Text('Editar'),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
+                                  style: TextStyle(fontSize: 10.0),
+                                ),
+                              ),
                             ),
-                          ),
-                        ]),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 10.0),
+                              child: Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children:[
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.garage,
+                                          color: Colors.black,
+                                        ),
+                                        Icon(
+                                          Icons.fastfood,
+                                          color: Colors.black,
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      alignment: Alignment.topRight,
+                                      height: 18,
+                                      //width
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (context) => TelaEditarEspaco(
+                                                categoryId: '',
+                                                //space: _snapshot,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                            const Color.fromRGBO(125, 0, 254, 1),
+                                            minimumSize: const Size(50, 45),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(15.0),
+                                            )),
+                                        child: const Text('Editar'),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Card(
+                      margin:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                       child: InkWell(
-                        splashColor: Colors.blue.withAlpha(100),
+                        splashColor: Colors.red.withAlpha(100),
                         onTap: () {},
-                        child: Column(children: [
-                          SizedBox(
-                            height: 300.0,
-                            child: Swiper(
-                              itemCount: 4,
-                              pagination: const SwiperPagination(),
-                              autoplay: true,
-                              itemBuilder: (context, index) {
-                                return MyImageView(listPaths[index]);
-                              },
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.25,
+                              child: Swiper(
+                                itemCount: 4,
+                                autoplay: true,
+                                pagination: const SwiperPagination(),
+                                itemBuilder: (context, index) {
+                                  return MyImageView(listPaths2[index]);
+                                },
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10.0,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text('Espaço Alegria Kids'),
-                              Text('preço'),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 10.0,
-                          ),
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
-                              style: TextStyle(fontSize: 10.0),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 5.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text('Espaço Alegria Kids'),
+                                  Text("R\$450,00/h"),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.topRight,
-                            height: 18,
-                            //width
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      const Color.fromRGBO(125, 0, 254, 1),
-                                  minimumSize: const Size(50, 45),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  )),
-                              child: const Text('Editar'),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
+                                  style: TextStyle(fontSize: 10.0),
+                                ),
+                              ),
                             ),
-                          ),
-                        ]),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 10.0),
+                              child: Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children:[
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.severe_cold,
+                                          color: Colors.black,
+                                        ),
+                                        Icon(
+                                          Icons.garage,
+                                          color: Colors.black,
+                                        ),
+                                        Icon(
+                                          Icons.fastfood,
+                                          color: Colors.black,
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      alignment: Alignment.topRight,
+                                      height: 18,
+                                      //width
+                                      child: ElevatedButton(
+                                        onPressed: () {},
+                                        style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                            const Color.fromRGBO(125, 0, 254, 1),
+                                            minimumSize: const Size(50, 45),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(15.0),
+                                            )),
+                                        child: const Text('Editar'),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Card(
+                      margin:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                       child: InkWell(
-                        splashColor: Colors.blue.withAlpha(100),
+                        splashColor: Colors.red.withAlpha(100),
                         onTap: () {},
-                        child: Column(children: [
-                          SizedBox(
-                            height: 300.0,
-                            child: Swiper(
-                              itemCount: 4,
-                              pagination: const SwiperPagination(),
-                              autoplay: true,
-                              itemBuilder: (context, index) {
-                                return MyImageView(listPaths[index]);
-                              },
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.25,
+                              child: Swiper(
+                                itemCount: 4,
+                                autoplay: true,
+                                pagination: const SwiperPagination(),
+                                itemBuilder: (context, index) {
+                                  return MyImageView(listPaths2[index]);
+                                },
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10.0,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text('Espaço Alegria Kids'),
-                              Text('preço'),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 10.0,
-                          ),
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
-                              style: TextStyle(fontSize: 10.0),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 5.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text('Espaço Alegria Kids'),
+                                  Text("R\$200,00/h"),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.topRight,
-                            height: 18,
-                            //width
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      const Color.fromRGBO(125, 0, 254, 1),
-                                  minimumSize: const Size(50, 45),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  )),
-                              child: const Text('Editar'),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
+                                  style: TextStyle(fontSize: 10.0),
+                                ),
+                              ),
                             ),
-                          ),
-                        ]),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 10.0),
+                              child: Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children:[
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.severe_cold,
+                                          color: Colors.black,
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      alignment: Alignment.topRight,
+                                      height: 18,
+                                      //width
+                                      child: ElevatedButton(
+                                        onPressed: () {},
+                                        style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                            const Color.fromRGBO(125, 0, 254, 1),
+                                            minimumSize: const Size(50, 45),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(15.0),
+                                            )),
+                                        child: const Text('Editar'),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],

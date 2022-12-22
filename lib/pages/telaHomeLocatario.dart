@@ -66,35 +66,289 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.07,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        color: Colors.red,
-                        child: Image.asset("assets/images/toys.png", alignment: Alignment.centerLeft),
+                  child: Container(
+                    color: Colors.white,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        Column(
+                          children: [
+                            Flexible(
+                              flex: 3,
+                              child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
+                                  child: Image.asset("assets/images/toys.png",
+                                      alignment: Alignment.centerLeft)),
+                            ),
+                            Container(
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                child: Text('Kids'),
+                                alignment: Alignment.centerLeft),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Flexible(
+                              flex: 3,
+                              child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
+                                  child: Image.asset("assets/images/quinze.png",
+                                      alignment: Alignment.centerLeft)),
+                            ),
+                            Container(
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                child: Text('Debut'),
+                                alignment: Alignment.centerLeft),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Flexible(
+                              flex: 3,
+                              child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
+                                  child: Image.asset("assets/images/buque.png",
+                                      alignment: Alignment.centerLeft)),
+                            ),
+                            Container(
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                child: Text('Casamento'),
+                                alignment: Alignment.centerLeft),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Flexible(
+                              flex: 3,
+                              child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
+                                  child: Image.asset("assets/images/cha.png",
+                                      alignment: Alignment.centerLeft)),
+                            ),
+                            Container(
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                child: Text('Cha'),
+                                alignment: Alignment.centerLeft),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Flexible(
+                              flex: 3,
+                              child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
+                                  child: Image.asset(
+                                      "assets/images/reuniao.png",
+                                      alignment: Alignment.centerLeft)),
+                            ),
+                            Container(
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                child: Text('Reuniao'),
+                                alignment: Alignment.centerLeft),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                  child: Card(
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                    child: InkWell(
+                      splashColor: Colors.red.withAlpha(100),
+                      onTap: () {},
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.25,
+                            child: Swiper(
+                              itemCount: 4,
+                              autoplay: true,
+                              pagination: const SwiperPagination(),
+                              itemBuilder: (context, index) {
+                                return MyImageView(listPaths2[index]);
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 5.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const [
+                                Text('Espaço Alegria Kids'),
+                                Text("R\$250,00/h"),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Container(
+                              alignment: Alignment.topLeft,
+                              child: const Text(
+                                'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
+                                style: TextStyle(fontSize: 10.0),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 10.0),
+                            child: Row(
+                              children: const [
+                                Icon(
+                                  Icons.severe_cold,
+                                  color: Colors.black,
+                                ),
+                                Icon(
+                                  Icons.garage,
+                                  color: Colors.black,
+                                ),
+                                Icon(
+                                  Icons.fastfood,
+                                  color: Colors.black,
+                                )
+                              ],
+                            ),
+                          )
+                        ],
                       ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        color: Colors.blue,
-                        child: Image.asset("assets/images/quinze.png", alignment: Alignment.centerLeft),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        color: Colors.green,
-                        child: Image.asset("assets/images/buque.png", alignment: Alignment.centerLeft),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        color: Colors.yellow,
-                        child: Image.asset("assets/images/cha.png", alignment: Alignment.centerLeft),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        color: Colors.red,
-                        child: Image.asset("assets/images/reuniao.png", alignment: Alignment.centerLeft),
-                      ),
-                    ],
+                    ),
+                  ),
+                ),
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: InkWell(
+                    splashColor: Colors.red.withAlpha(100),
+                    onTap: () {},
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.25,
+                          child: Swiper(
+                            itemCount: 4,
+                            autoplay: true,
+                            pagination: const SwiperPagination(),
+                            itemBuilder: (context, index) {
+                              return MyImageView(listPaths[index]);
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 5.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text('Espaço Alegria Kids'),
+                              Text("R\$350,00/h"),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: const Text(
+                              'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
+                              style: TextStyle(fontSize: 10.0),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 10.0),
+                          child: Row(
+                            children: const [
+                              Icon(
+                                Icons.severe_cold,
+                                color: Colors.black,
+                              ),
+                              Icon(
+                                Icons.wifi,
+                                color: Colors.black,
+                              ),
+                              Icon(
+                                Icons.garage,
+                                color: Colors.black,
+                              ),
+                              Icon(
+                                Icons.fastfood,
+                                color: Colors.black,
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Card(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: InkWell(
+                    splashColor: Colors.red.withAlpha(100),
+                    onTap: () {},
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.25,
+                          child: Swiper(
+                            itemCount: 4,
+                            autoplay: true,
+                            pagination: const SwiperPagination(),
+                            itemBuilder: (context, index) {
+                              return MyImageView(listPaths3[index]);
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 5.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text('Espaço Alegria Kids'),
+                              Text("R\$300,00/h"),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: const Text(
+                              'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
+                              style: TextStyle(fontSize: 10.0),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 10.0),
+                          child: Row(
+                            children: const [
+                              Icon(
+                                Icons.severe_cold,
+                                color: Colors.black,
+                              ),
+                              Icon(
+                                Icons.wifi,
+                                color: Colors.black,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Card(
@@ -123,7 +377,7 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: const [
                               Text('Espaço Alegria Kids'),
-                              Text("R\$250,00/h"),
+                              Text("R\$200,00/h"),
                             ],
                           ),
                         ),
@@ -142,189 +396,20 @@ class _TelaHomeLocatarioState extends State<TelaHomeLocatario> {
                           child: Row(
                             children: const [
                               Icon(
-                                Icons.arrow_right_outlined,
+                                Icons.severe_cold,
+                                color: Colors.black,
+                              ),
+                              Icon(
+                                Icons.garage,
+                                color: Colors.black,
+                              ),
+                              Icon(
+                                Icons.fastfood,
                                 color: Colors.black,
                               )
                             ],
                           ),
                         )
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(100),
-                    onTap: () {},
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          child: Swiper(
-                            itemCount: 4,
-                            autoplay: true,
-                            pagination: const SwiperPagination(),
-                            itemBuilder: (context, index) {
-                              return MyImageView(listPaths3[index]);
-                            },
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text('Espaço Alegria Kids'),
-                            Text('preço'),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
-                            style: TextStyle(fontSize: 10.0),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.topRight,
-                          height: 18,
-                          //width
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    const Color.fromRGBO(125, 0, 254, 1),
-                                minimumSize: const Size(50, 45),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                )),
-                            child: const Text('Editar'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(100),
-                    onTap: () {},
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          child: Swiper(
-                            itemCount: 4,
-                            autoplay: true,
-                            pagination: const SwiperPagination(),
-                            itemBuilder: (context, index) {
-                              return MyImageView(listPaths2[index]);
-                            },
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text('Espaço Alegria Kids'),
-                            Text('preço'),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
-                            style: TextStyle(fontSize: 10.0),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.topRight,
-                          height: 18,
-                          //width
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    const Color.fromRGBO(125, 0, 254, 1),
-                                minimumSize: const Size(50, 45),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                )),
-                            child: const Text('Editar'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                  child: InkWell(
-                    splashColor: Colors.blue.withAlpha(100),
-                    onTap: () {},
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          child: Swiper(
-                            itemCount: 4,
-                            autoplay: true,
-                            pagination: const SwiperPagination(),
-                            itemBuilder: (context, index) {
-                              return MyImageView(listPaths3[index]);
-                            },
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text('Espaço Alegria Kids'),
-                            Text('preço'),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Rua Maria da Graca, 123 - 21123-123\nMaria da Graca, Rio de janeiro',
-                            style: TextStyle(fontSize: 10.0),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.topRight,
-                          height: 18,
-                          //width
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    const Color.fromRGBO(125, 0, 254, 1),
-                                minimumSize: const Size(50, 45),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                )),
-                            child: const Text('Editar'),
-                          ),
-                        ),
                       ],
                     ),
                   ),
