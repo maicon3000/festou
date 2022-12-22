@@ -4,20 +4,20 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 
 import '../blocs/spaceBloc.dart';
 
-class TelaEspaco extends StatefulWidget {
+class TelaEditarEspaco extends StatefulWidget {
   final String categoryId;
   // DocumentSnapshot space;
 
   final SpaceBloc _spaceBloc;
 
-  TelaEspaco({super.key, required this.categoryId, /*required this.space*/})
+  TelaEditarEspaco({super.key, required this.categoryId, /*required this.space*/})
       : _spaceBloc = SpaceBloc(categoryId: categoryId, /*space: space*/);
 
   @override
-  State<TelaEspaco> createState() => _TelaEspacoState();
+  State<TelaEditarEspaco> createState() => _TelaEditarEspacoState();
 }
 
-class _TelaEspacoState extends State<TelaEspaco> {
+class _TelaEditarEspacoState extends State<TelaEditarEspaco> {
   final _formKey = GlobalKey<FormState>();
 
   final List<String> items = [
@@ -80,8 +80,8 @@ class _TelaEspacoState extends State<TelaEspaco> {
 
     InputDecoration buildDecoration(String label){
       return InputDecoration(
-        labelText: label,
-        labelStyle: const TextStyle(color: Colors.grey)
+          labelText: label,
+          labelStyle: const TextStyle(color: Colors.grey)
       );
     }
 
@@ -93,7 +93,7 @@ class _TelaEspacoState extends State<TelaEspaco> {
       backgroundColor: Colors.grey[850],
       appBar: AppBar(
         elevation: 0,
-        title: const Text("Cadastrar espaço"),
+        title: const Text("Editar espaço"),
         actions: [
           IconButton(
             onPressed: () {},

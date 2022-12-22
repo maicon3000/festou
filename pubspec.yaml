@@ -46,6 +46,7 @@ dependencies:
   bloc_pattern: ^2.3.2
   shimmer: ^2.0.0
   firebase_core : ^2.4.0
+  scoped_model: ^2.0.0
 
 
 
@@ -99,6 +100,8 @@ flutter:
   - assets/images/buque.png
   - assets/images/cha.png
   - assets/images/reuniao.png
+  - assets/images/lupa.png
+  - assets/images/contrato.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

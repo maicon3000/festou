@@ -332,127 +332,133 @@ class TelaPerfilLocador extends StatelessWidget {
                       ],
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      //locaratio = true;
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const TelaSeletoraLocador(/*true*/)),
-                      );
-                    },
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: const [
-                                Icon(
-                                  Icons.newspaper,
-                                  color: Colors.black,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.0),
-                                  child: Text(
-                                    'Anunciar um espaço',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w400,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: TextButton(
+                      onPressed: () {
+                        //locaratio = true;
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const TelaSeletoraLocador(/*true*/)),
+                        );
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: const [
+                                  Icon(
+                                    Icons.newspaper,
+                                    color: Colors.black,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.0),
+                                    child: Text(
+                                      'Anunciar um espaço',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
+                              Row(
+                                children: const [
+                                  Icon(
+                                    Icons.arrow_right_outlined,
+                                    color: Colors.black,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 3.0, left: 5.0),
+                            child: Text(
+                              'Meu perfil locador',
+                              style: TextStyle(
+                                fontSize: 10.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
-                            Row(
-                              children: const [
-                                Icon(
-                                  Icons.arrow_right_outlined,
-                                  color: Colors.black,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
-                          child: Text(
-                            'Meu perfil locador',
-                            style: TextStyle(
-                              fontSize: 10.0,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 5.0, right: 12.0),
+                            child: Divider(
+                              height: 2.0,
                               color: Colors.black,
-                              fontWeight: FontWeight.w400,
+                              thickness: 0.5,
                             ),
                           ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
-                          child: Divider(
-                            height: 2.0,
-                            color: Colors.black,
-                            thickness: 0.5,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: const [
-                                Icon(
-                                  Icons.help,
-                                  color: Colors.black,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.0),
-                                  child: Text(
-                                    'Ajuda',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w400,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: const [
+                                  Icon(
+                                    Icons.help,
+                                    color: Colors.black,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.0),
+                                    child: Text(
+                                      'Ajuda',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
+                              Row(
+                                children: const [
+                                  Icon(
+                                    Icons.arrow_right_outlined,
+                                    color: Colors.black,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 3.0, left: 5.0),
+                            child: Text(
+                              '',
+                              style: TextStyle(
+                                fontSize: 10.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
-                            Row(
-                              children: const [
-                                Icon(
-                                  Icons.arrow_right_outlined,
-                                  color: Colors.black,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 3.0, left: 5.0),
-                          child: Text(
-                            '',
-                            style: TextStyle(
-                              fontSize: 10.0,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 5.0, right: 12.0),
+                            child: Divider(
+                              height: 2.0,
                               color: Colors.black,
-                              fontWeight: FontWeight.w400,
+                              thickness: 0.5,
                             ),
                           ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 5.0, right: 12.0),
-                          child: Divider(
-                            height: 2.0,
-                            color: Colors.black,
-                            thickness: 0.5,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   TextButton(
