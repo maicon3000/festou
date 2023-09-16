@@ -1,4 +1,3 @@
-import 'package:Festou/pages/telaHomeLocador.dart';
 import 'package:flutter/material.dart';
 import 'package:Festou/pages/telaPerfilLocatario.dart';
 import 'package:Festou/pages/contratosPage.dart';
@@ -32,27 +31,24 @@ class TelaSeletoraLocadorState extends State<TelaSeletoraLocador> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: IgnorePointer(
-        ignoring: false,
-        child: PageView(
+      body: PageView(
 
 
-          controller: pc,
-          onPageChanged: setPaginaAtual,
+        controller: pc,
+        onPageChanged: setPaginaAtual,
 
-            /*if(locatario) {
+          /*if(locatario) {
     children: [
-              TelaHomeLocatario(),
-              BuscaPage(),
-              ContratosPage(),
-              TelaPerfilLocatario(),]
-            } else { */
+            TelaHomeLocatario(),
+            BuscaPage(),
+            ContratosPage(),
+            TelaPerfilLocatario(),]
+          } else { */
     children: [
-              const TelaHomeLocatario(),
-              const BuscaPage(),
-              const ContratosPage(),
-              TelaPerfilLocatario(),],
-        ),
+            const TelaHomeLocatario(),
+            const BuscaPage(),
+            const ContratosPage(),
+            TelaPerfilLocatario(),],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -71,3 +67,5 @@ class TelaSeletoraLocadorState extends State<TelaSeletoraLocador> {
     );
   }
 }
+
+
