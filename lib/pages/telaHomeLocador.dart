@@ -91,8 +91,8 @@ class _TelaHomeLocadorState extends State<TelaHomeLocador> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => TelaEspaco(
-                                categoryId: '',
-                                //space: _snapshot,
+                                idCategoria: '',
+                                espaco: _snapshot,
                               ),
                             ),
                           );

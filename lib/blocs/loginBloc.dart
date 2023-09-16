@@ -54,12 +54,11 @@ class LoginBloc extends BlocBase with LoginValidators {
 
   @override
   void dispose() {
-    super.dispose();
     _emailController.close();
     _passwordController.close();
     _stateController.close();
-
     _streamSubscription!.cancel();
+    super.dispose();
   }
 
   signOut() {
