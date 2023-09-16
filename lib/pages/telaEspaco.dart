@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
-import '../blocs/spaceBloc.dart';
+import '../blocs/espacoBloc.dart';
 
 class TelaEspaco extends StatefulWidget {
-  final String categoryId;
-  // DocumentSnapshot space;
+  final String idCategoria;
+  final DocumentSnapshot espaco;
 
-  final SpaceBloc _spaceBloc;
+  TelaEspaco({super.key, required this.idCategoria, required this.espaco});
 
-  TelaEspaco({super.key, required this.categoryId, /*required this.space*/})
-      : _spaceBloc = SpaceBloc(categoryId: categoryId, /*space: space*/);
+  @override
+  _TelaEspacoState createState() => _TelaEspacoState(idCategoria, espaco);
+}
+
+class _TelaEspacoState extends State<TelaEspaco> {
+  final EspacoBloc _espacoBloc;
+  final _formKey = GlobalKey<FormState>();
+
+  _TelaEspacoState(String idCategoria, DocumentSnapshot espaco)
+      : _espacoBloc = EspacoBloc(idCategoria: idCategoria, espaco: espaco);
 
   @override
   State<TelaEspaco> createState() => _TelaEspacoState();
@@ -77,12 +85,9 @@ class _TelaEspacoState extends State<TelaEspaco> {
 
   @override
   Widget build(context) {
-
-    InputDecoration buildDecoration(String label){
+    InputDecoration buildDecoration(String label) {
       return InputDecoration(
-        labelText: label,
-        labelStyle: const TextStyle(color: Colors.grey)
-      );
+          labelText: label, labelStyle: const TextStyle(color: Colors.grey));
     }
 
     const fieldStyle = TextStyle(
@@ -107,79 +112,40 @@ class _TelaEspacoState extends State<TelaEspaco> {
       ),
       body: Form(
         key: _formKey,
-        child: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            TextFormField(
-              style: fieldStyle,
-              decoration: buildDecoration("Título"),
-              onSaved: (t){},
-              validator: (t){},
-            ),
-            TextFormField(
-              style: fieldStyle,
-              maxLines: 6,
-              decoration: buildDecoration("Descrição"),
-              onSaved: (t){},
-              validator: (t){},
-            ),
-            TextFormField(
-              style: fieldStyle,
-              decoration: buildDecoration("Preço"),
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
-              onSaved: (t){},
-              validator: (t){},
-            ),
-            Padding(
+        child: StreamBuilder<Map>(
+          stream: _espacoBloc.outData,
+          builder: (context, snapshot) {
+            if(!snapshot.hasData) return Container();
+            return ListView(
               padding: const EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: DropdownButtonHideUnderline(
-                        child: DropdownButton2(
-                          isExpanded: true,
-                          hint: Text(
-                            'Selecione o tipo',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Theme.of(context).hintColor,
-                            ),
-                          ),
-                          items: _addDividersAfterItems(items),
-                          customItemsHeights: _getCustomItemsHeights(),
-                          value: selectedValue,
-                          onChanged: (value) {
-                            setState(() {
-                              selectedValue = value as String;
-                            });
-                          },
-                          buttonHeight: 40,
-                          dropdownMaxHeight: 200,
-                          buttonWidth: 250,
-                          itemPadding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 20.0,),
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: TextFormField(
-                        style: fieldStyle,
-                        decoration: buildDecoration("Preço"),
-                        onSaved: (t){},
-                        validator: (t){},
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+              children: [
+                TextFormField(
+                  initialValue: snapshot.data!["title"],
+                  style: fieldStyle,
+                  decoration: buildDecoration("Título"),
+                  onSaved: (t) {},
+                  validator: (t) {},
+                ),
+                TextFormField(
+                  initialValue: snapshot.data!["description"],
+                  style: fieldStyle,
+                  maxLines: 6,
+                  decoration: buildDecoration("Descrição"),
+                  onSaved: (t) {},
+                  validator: (t) {},
+                ),
+                TextFormField(
+                  initialValue: snapshot.data!["price"]?.toStringAsFixed(2),
+                  style: fieldStyle,
+                  decoration: buildDecoration("Preço"),
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
+                  onSaved: (t) {},
+                  validator: (t) {},
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
